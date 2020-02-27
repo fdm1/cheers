@@ -1,50 +1,49 @@
 import React from 'react';
 import {FlatList, View, Text} from 'react-native';
 import {styles} from '../styles';
-import {DrinkType} from '../Types/DrinkType';
+import {DrinkType, IngredientType} from '../Types/DrinkTypes';
 
-interface DrinkProps {
+interface DrinkComponentProps {
   drink: DrinkType;
 }
 
-interface ListItemProps {
-  item: string;
+interface IngredientListViewComponentProps {
+  ingredients: IngredientType[];
 }
 
-interface ListProps {
-  title: string;
-  listItems?: string[];
-}
-
-const ListItemView = ({item}: ListItemProps) => {
-  return <Text>- {item}</Text>;
+const formatIngredient = (ingredient: IngredientType) => {
+  return `- ${ingredient.name} (${ingredient.amount})`;
 };
 
-const ListView = ({title, listItems}: ListProps) => {
-  if (listItems) {
-    return (
-      <View style={styles.body}>
-        <Text>{title}</Text>
-        <FlatList
-          data={listItems}
-          renderItem={({item}: ListItemProps) => <ListItemView item={item} />}
-          keyExtractor={item => item}
-        />
-      </View>
-    );
-  } else {
-    // TODO: how to not return?
-    return <Text />;
-  }
+const IngredientListView: React.FC<IngredientListViewComponentProps> = ({
+  ingredients,
+}) => {
+  return (
+    <View style={styles.body}>
+      <Text>Ingredients</Text>
+      <FlatList
+        data={ingredients}
+        renderItem={ingredient => (
+          <Text>
+            - {ingredient.item.name} ({ingredient.item.amount})
+          </Text>
+        )}
+        keyExtractor={ingredient => ingredient.name}
+      />
+    </View>
+  );
 };
 
-// TODO: map ingredients and directions into lists
-export const Drink: React.FC<DrinkProps> = ({drink}) => {
+export const Drink: React.FC<DrinkComponentProps> = ({drink}) => {
+  var directions = drink.directions ? (
+    <Text>Directions: {drink.directions}</Text>
+  ) : null;
+
   return (
     <View style={styles.sectionContainer}>
       <Text style={styles.sectionTitle}>{drink.title}</Text>
-      <ListView title="ingredients" listItems={drink.ingredients} />
-      <ListView title="directions" listItems={drink.directions} />
+      <IngredientListView ingredients={drink.ingredients} />
+      {directions}
     </View>
   );
 };

@@ -2,24 +2,24 @@ import React from 'react';
 import {Button, View, Text} from 'react-native';
 import {styles} from '../styles';
 import {Drink} from './Drink';
-import {DrinkType} from '../Types/DrinkType';
-
-const getRandomDrink = () => {
-  // TODO: Get from api and parse json response
-  'A drink!';
-};
+import {DrinkType} from '../Types/DrinkTypes';
+import {getRandomDrink} from '../Apis/CocktailDb';
 
 var myDrink: DrinkType = {
   title: 'MyDrink',
-  ingredients: ['foo', 'bar'],
+  ingredients: [
+    {name: 'foo', amount: '1 tsp'},
+    {name: 'bar', amount: '1/2 tsp'},
+  ],
+  directions: 'do some stuff',
 };
 
 export const GrabADrink: React.FC = () => {
-  var [drink] = React.useState<DrinkType | undefined>(myDrink)
+  var [drink, setDrink] = React.useState<DrinkType | undefined>(myDrink);
   let drinkView;
 
   if (drink) {
-    drinkView = <Drink drink={myDrink}/>;
+    drinkView = <Drink drink={drink} />;
   }
 
   return (
@@ -31,7 +31,13 @@ export const GrabADrink: React.FC = () => {
         </Text>
         <View style={styles.buttons}>
           <View style={styles.button}>
-            <Button title="Grab a drink!" onPress={() => getRandomDrink()} />
+            <Button
+              title="Grab a drink!"
+              onPress={() => {
+                var response = getRandomDrink();
+                console.log(response);
+              }}
+            />
           </View>
         </View>
         {drinkView}
