@@ -22,6 +22,7 @@ export const parseResposne = (jsonResponse: any): DrinkType => {
   const drink: DrinkType = {
     name: jsonResponse.strDrink,
     ingredients: parseIngredients(jsonResponse),
+    glass: jsonResponse.strGlass,
     directions: jsonResponse.strInstructions,
   };
   return drink;

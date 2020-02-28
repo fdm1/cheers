@@ -39,11 +39,14 @@ export const Drink: React.FC<DrinkComponentProps> = ({drink}) => {
     <Text>Directions: {drink.directions}</Text>
   ) : null;
 
+  var glass = drink.glass ? <Text>Glass: {drink.glass}</Text> : null;
+
   return (
     <View style={styles.sectionContainer}>
       <Text style={styles.sectionTitle}>{drink.name}</Text>
       <IngredientListView ingredients={drink.ingredients} />
       {directions}
+      {glass}
     </View>
   );
 };
