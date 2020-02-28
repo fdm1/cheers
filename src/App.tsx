@@ -10,7 +10,7 @@
 
 import React from 'react';
 import {SafeAreaView, StatusBar} from 'react-native';
-import {GrabADrink} from './src/Components/GrabADrink';
+import {GrabADrink} from 'Components/GrabADrink';
 
 declare var global: {HermesInternal: null | {}};
 

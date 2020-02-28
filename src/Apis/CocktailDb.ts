@@ -1,4 +1,6 @@
-import {DrinkType} from '../Types/DrinkTypes';
+import {DrinkType} from '@app/Types/DrinkTypes';
+
+// https://www.thecocktaildb.com/api.php
 const endpoint = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
 
 // TODO: Get all ingredients, not just first two
@@ -11,23 +13,16 @@ const parseResposne = (jsonResponse: any): DrinkType => {
     ],
     directions: jsonResponse.strInstructions,
   };
-  console.log(drink);
   return drink;
 };
 
 export const getRandomDrink = async (): Promise<DrinkType | undefined> => {
-  let drink;
-  console.log('Getting a drink');
-  fetch(endpoint)
-    .then(response => response.json())
-    .then(responseJson => {
-      const drinkJson = responseJson.drinks[0];
-      console.log(drinkJson);
-      drink = parseResposne(drinkJson);
-    })
-    .catch(error => {
-      console.error(error);
-    });
-
-  return drink;
+  try {
+    let response = await fetch(endpoint);
+    let responseJson = await response.json();
+    let drinkJson = responseJson.drinks[0];
+    return parseResposne(drinkJson);
+  } catch (error) {
+    console.error(error);
+  }
 };

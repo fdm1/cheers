@@ -1,7 +1,7 @@
 import React from 'react';
 import {FlatList, View, Text} from 'react-native';
-import {styles} from '../styles';
-import {DrinkType, IngredientType} from '../Types/DrinkTypes';
+import {styles} from '@app/styles';
+import {DrinkType, IngredientType} from '@app/Types/DrinkTypes';
 
 interface DrinkComponentProps {
   drink: DrinkType;
