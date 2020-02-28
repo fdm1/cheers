@@ -1,20 +1,21 @@
-import {getRandomDrink} from '@app/src/Apis/CocktailDb';
+import {parseResposne} from '@app/Apis/CocktailDb';
+import {DrinkType} from '@app/Types/DrinkTypes';
 
-// const fakeResponse = (): string => {
-//   const fs = require('fs');
-//   return fs.readFileSync('a_drink.json', 'utf-8');
-// };
-//
-describe('getRandomDrink', function() {
-  beforeEach(() => {
-    /* fetch.resetMocks(); */
+const fakeResponse = (): any => {
+  const fs = require('fs');
+  let contents = JSON.parse(
+    fs.readFileSync('./test/support/a_drink.json', 'utf-8'),
+  );
+  return contents;
+};
+
+describe('parseResponse', function() {
+  it('correctly parses the drink', function() {
+    const expectedDrink = fakeResponse().drinks[0];
+    const drink: DrinkType = parseResposne(expectedDrink);
+
+    expect(drink.name).toEqual(expectedDrink.strDrink);
+    expect(drink.directions).toEqual(expectedDrink.strInstructions);
+    expect(drink.ingredients.length).toEqual(5);
   });
-
-  describe('successful responses', function() {
-    /* fetch.mockResponse(fakeResponse); */
-
-    it('returns a DrinkType', function() {});
-    it('includes all ingredients', function() {});
-  });
-  it('returns nothing if error response', function() {});
 });

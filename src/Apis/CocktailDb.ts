@@ -1,16 +1,27 @@
-import {DrinkType} from '@app/Types/DrinkTypes';
+import {DrinkType, IngredientType} from '@app/Types/DrinkTypes';
 
 // https://www.thecocktaildb.com/api.php
 const endpoint = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
 
-// TODO: Get all ingredients, not just first two
-const parseResposne = (jsonResponse: any): DrinkType => {
+const parseIngredients = (jsonResponse: Object): IngredientType[] => {
+  let entries = Object.entries(jsonResponse);
+  let ingredients = entries.filter(v => v[0].includes('Ingredient') && v[1]);
+  const resp: IngredientType[] = ingredients.map(i => {
+    const amountEntry = entries.find(
+      e => e[0] === i[0].replace('Ingredient', 'Measure'),
+    );
+    return {
+      name: i[1],
+      amount: amountEntry ? amountEntry[1] : undefined,
+    };
+  });
+  return resp;
+};
+
+export const parseResposne = (jsonResponse: any): DrinkType => {
   const drink: DrinkType = {
     name: jsonResponse.strDrink,
-    ingredients: [
-      {name: jsonResponse.strIngredient1, amount: jsonResponse.strMeasure1},
-      {name: jsonResponse.strIngredient2, amount: jsonResponse.strMeasure2},
-    ],
+    ingredients: parseIngredients(jsonResponse),
     directions: jsonResponse.strInstructions,
   };
   return drink;

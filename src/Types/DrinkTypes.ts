@@ -7,5 +7,5 @@ export type DrinkType = {
 
 export type IngredientType = {
   name: string;
-  amount: string;
+  amount?: string;
 };
