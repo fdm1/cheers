@@ -11,6 +11,11 @@ interface IngredientListViewComponentProps {
   ingredients: IngredientType[];
 }
 
+interface TextAreaComponentProps {
+  sectionTitle: string;
+  sectionText?: string;
+}
+
 const formatIngredient = (ingredient: IngredientType) => {
   return (
     <Text>
@@ -24,7 +29,7 @@ const IngredientListView: React.FC<IngredientListViewComponentProps> = ({
 }) => {
   return (
     <View style={styles.body}>
-      <Text>Ingredients</Text>
+      <Text style={styles.sectionDescription}>Ingredients</Text>
       <FlatList
         data={ingredients}
         renderItem={ingredient => formatIngredient(ingredient.item)}
@@ -34,19 +39,29 @@ const IngredientListView: React.FC<IngredientListViewComponentProps> = ({
   );
 };
 
+const TextAreaView: React.FC<TextAreaComponentProps> = ({
+  sectionTitle,
+  sectionText,
+}) => {
+  if (sectionText) {
+    return (
+      <View style={styles.body}>
+        <Text style={styles.sectionDescription}>{sectionTitle}</Text>
+        <Text>{sectionText}</Text>
+      </View>
+    );
+  } else {
+    return <View />;
+  }
+};
+
 export const Drink: React.FC<DrinkComponentProps> = ({drink}) => {
-  var directions = drink.directions ? (
-    <Text>Directions: {drink.directions}</Text>
-  ) : null;
-
-  var glass = drink.glass ? <Text>Glass: {drink.glass}</Text> : null;
-
   return (
     <View style={styles.sectionContainer}>
       <Text style={styles.sectionTitle}>{drink.name}</Text>
       <IngredientListView ingredients={drink.ingredients} />
-      {directions}
-      {glass}
+      <TextAreaView sectionTitle="Directions" sectionText={drink.directions} />
+      <TextAreaView sectionTitle="Glass" sectionText={drink.glass} />
     </View>
   );
 };
