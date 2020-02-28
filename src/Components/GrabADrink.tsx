@@ -6,7 +6,7 @@ import {DrinkType} from '../Types/DrinkTypes';
 import {getRandomDrink} from '../Apis/CocktailDb';
 
 var myDrink: DrinkType = {
-  title: 'MyDrink',
+  name: 'MyDrink',
   ingredients: [
     {name: 'foo', amount: '1 tsp'},
     {name: 'bar', amount: '1/2 tsp'},
@@ -22,6 +22,15 @@ export const GrabADrink: React.FC = () => {
     drinkView = <Drink drink={drink} />;
   }
 
+  const getNewDrink = async () => {
+    const response = await getRandomDrink();
+    console.log('Setting drink:');
+    console.log(response);
+    if (response) {
+      setDrink(response);
+    }
+  };
+
   return (
     <View style={styles.body}>
       <View style={styles.sectionContainer}>
@@ -31,13 +40,7 @@ export const GrabADrink: React.FC = () => {
         </Text>
         <View style={styles.buttons}>
           <View style={styles.button}>
-            <Button
-              title="Grab a drink!"
-              onPress={() => {
-                var response = getRandomDrink();
-                console.log(response);
-              }}
-            />
+            <Button title="Grab a drink!" onPress={getNewDrink} />
           </View>
         </View>
         {drinkView}

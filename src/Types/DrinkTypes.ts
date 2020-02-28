@@ -1,5 +1,5 @@
 export type DrinkType = {
-  title: string;
+  name: string;
   ingredients: IngredientType[];
   directions?: string;
   image_url?: string;

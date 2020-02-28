@@ -12,7 +12,11 @@ interface IngredientListViewComponentProps {
 }
 
 const formatIngredient = (ingredient: IngredientType) => {
-  return `- ${ingredient.name} (${ingredient.amount})`;
+  return (
+    <Text>
+      - {ingredient.amount} {ingredient.name}
+    </Text>
+  );
 };
 
 const IngredientListView: React.FC<IngredientListViewComponentProps> = ({
@@ -23,11 +27,7 @@ const IngredientListView: React.FC<IngredientListViewComponentProps> = ({
       <Text>Ingredients</Text>
       <FlatList
         data={ingredients}
-        renderItem={ingredient => (
-          <Text>
-            - {ingredient.item.name} ({ingredient.item.amount})
-          </Text>
-        )}
+        renderItem={ingredient => formatIngredient(ingredient.item)}
         keyExtractor={ingredient => ingredient.name}
       />
     </View>
@@ -41,7 +41,7 @@ export const Drink: React.FC<DrinkComponentProps> = ({drink}) => {
 
   return (
     <View style={styles.sectionContainer}>
-      <Text style={styles.sectionTitle}>{drink.title}</Text>
+      <Text style={styles.sectionTitle}>{drink.name}</Text>
       <IngredientListView ingredients={drink.ingredients} />
       {directions}
     </View>
