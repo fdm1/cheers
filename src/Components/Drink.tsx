@@ -33,7 +33,7 @@ const IngredientListView: React.FC<IngredientListViewComponentProps> = ({
       <FlatList
         data={ingredients}
         renderItem={ingredient => formatIngredient(ingredient.item)}
-        keyExtractor={ingredient => ingredient.name}
+        keyExtractor={ingredient => ingredient.key}
       />
     </View>
   );

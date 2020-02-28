@@ -11,6 +11,7 @@ const parseIngredients = (jsonResponse: Object): IngredientType[] => {
       e => e[0] === i[0].replace('Ingredient', 'Measure'),
     );
     return {
+      key: i[0],
       name: i[1],
       amount: amountEntry ? amountEntry[1] : undefined,
     };

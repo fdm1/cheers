@@ -7,6 +7,7 @@ export type DrinkType = {
 };
 
 export type IngredientType = {
+  key: string;
   name: string;
   amount?: string;
 };
