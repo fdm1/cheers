@@ -12,14 +12,13 @@ import React from 'react';
 import {SafeAreaView, StatusBar} from 'react-native';
 import {GrabADrink} from 'Components/GrabADrink';
 import {Footer} from './Components/Footer';
-
-declare var global: {HermesInternal: null | {}};
+import {styles} from './styles';
 
 const App = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
+      <SafeAreaView style={styles.safeAreaView}>
         <GrabADrink />
       </SafeAreaView>
       <Footer />

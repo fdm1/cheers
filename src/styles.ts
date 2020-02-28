@@ -12,6 +12,9 @@ export const styles = StyleSheet.create({
   body: {
     backgroundColor: Colors.white,
   },
+  safeAreaView: {
+    flex: 1,
+  },
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,
