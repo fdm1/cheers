@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "DemoApp-tvOS.app"
-               BlueprintName = "DemoApp-tvOS"
-               ReferencedContainer = "container:DemoApp.xcodeproj">
+               BuildableName = "Cheers-tvOS.app"
+               BlueprintName = "Cheers-tvOS"
+               ReferencedContainer = "container:Cheers.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "DemoApp-tvOSTests.xctest"
-               BlueprintName = "DemoApp-tvOSTests"
-               ReferencedContainer = "container:DemoApp.xcodeproj">
+               BuildableName = "Cheers-tvOSTests.xctest"
+               BlueprintName = "Cheers-tvOSTests"
+               ReferencedContainer = "container:Cheers.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -61,9 +61,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "DemoApp-tvOSTests.xctest"
-               BlueprintName = "DemoApp-tvOSTests"
-               ReferencedContainer = "container:DemoApp.xcodeproj">
+               BuildableName = "Cheers-tvOSTests.xctest"
+               BlueprintName = "Cheers-tvOSTests"
+               ReferencedContainer = "container:Cheers.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -71,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "DemoApp-tvOS.app"
-            BlueprintName = "DemoApp-tvOS"
-            ReferencedContainer = "container:DemoApp.xcodeproj">
+            BuildableName = "Cheers-tvOS.app"
+            BlueprintName = "Cheers-tvOS"
+            ReferencedContainer = "container:Cheers.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "DemoApp-tvOS.app"
-            BlueprintName = "DemoApp-tvOS"
-            ReferencedContainer = "container:DemoApp.xcodeproj">
+            BuildableName = "Cheers-tvOS.app"
+            BlueprintName = "Cheers-tvOS"
+            ReferencedContainer = "container:Cheers.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -113,9 +113,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "DemoApp-tvOS.app"
-            BlueprintName = "DemoApp-tvOS"
-            ReferencedContainer = "container:DemoApp.xcodeproj">
+            BuildableName = "Cheers-tvOS.app"
+            BlueprintName = "Cheers-tvOS"
+            ReferencedContainer = "container:Cheers.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
