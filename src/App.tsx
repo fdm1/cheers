@@ -11,6 +11,7 @@
 import React from 'react';
 import {SafeAreaView, StatusBar} from 'react-native';
 import {GrabADrink} from 'Components/GrabADrink';
+import {Footer} from './Components/Footer';
 
 declare var global: {HermesInternal: null | {}};
 
@@ -21,6 +22,7 @@ const App = () => {
       <SafeAreaView>
         <GrabADrink />
       </SafeAreaView>
+      <Footer />
     </>
   );
 };

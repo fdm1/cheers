@@ -37,6 +37,8 @@ export const styles = StyleSheet.create({
     padding: 4,
     paddingRight: 12,
     textAlign: 'right',
+    position: 'absolute',
+    bottom: 0,
   },
   buttons: {
     flexDirection: 'row',
