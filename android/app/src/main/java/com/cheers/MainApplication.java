@@ -1,4 +1,4 @@
-package com.demoapp;
+package com.cheers;
 
 import android.app.Application;
 import android.content.Context;
