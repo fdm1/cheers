@@ -14,7 +14,7 @@ Build a cross-platform app using react-native that can:
 
 ### Things I did
 0. Create shell app (react-native with typescript)
-    npx react-native init Cheers --template react-native-template-typescript
+    npx react-native init DemoApp --template react-native-template-typescript
 0. run apps
     yarn run android
     yarn run ios
