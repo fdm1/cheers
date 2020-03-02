@@ -17,5 +17,7 @@ describe('parseResponse', function() {
     expect(drink.name).toEqual(expectedDrink.strDrink);
     expect(drink.directions).toEqual(expectedDrink.strInstructions);
     expect(drink.ingredients.length).toEqual(5);
+    expect(drink.glass).toEqual(expectedDrink.strGlass);
+    expect(drink.image_url).toEqual(expectedDrink.strDrinkThumb);
   });
 });

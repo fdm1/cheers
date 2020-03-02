@@ -59,4 +59,8 @@ export const styles = StyleSheet.create({
     marginVertical: 8,
     marginHorizontal: 16,
   },
+  drinkThumb: {
+    width: 100,
+    height: 100,
+  },
 });

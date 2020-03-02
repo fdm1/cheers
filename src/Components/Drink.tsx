@@ -1,5 +1,5 @@
 import React from 'react';
-import {FlatList, View, Text} from 'react-native';
+import {FlatList, View, Text, Image} from 'react-native';
 import {styles} from '@app/styles';
 import {DrinkType, IngredientType} from '@app/Types/DrinkTypes';
 
@@ -58,6 +58,9 @@ const TextAreaView: React.FC<TextAreaComponentProps> = ({
 export const Drink: React.FC<DrinkComponentProps> = ({drink}) => {
   return (
     <View style={styles.sectionContainer}>
+      {drink && drink.image_url ? (
+        <Image style={styles.drinkThumb} source={{uri: drink.image_url}} />
+      ) : null}
       <Text style={styles.sectionTitle}>{drink.name}</Text>
       <IngredientListView ingredients={drink.ingredients} />
       <TextAreaView sectionTitle="Directions" sectionText={drink.directions} />
